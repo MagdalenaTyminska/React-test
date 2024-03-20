@@ -2,13 +2,11 @@ import { FC } from "react"; //function component
 import "./App.scss";
 
 const App: FC = () => {
-  const sayName = (name: string) => {
-    return <h1> {name}</h1>;
-  };
+  const name = prompt("Provide your name");
 
   return (
     <>
-      <div> {sayName("Ala")} </div>
+      <h1> {name} </h1>
     </>
   );
 };
