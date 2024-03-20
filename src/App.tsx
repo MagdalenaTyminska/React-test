@@ -2,12 +2,13 @@ import { FC } from "react"; //function component
 import "./App.scss";
 
 const App: FC = () => {
-  const first = 3;
-  const second = 4;
+  const sayName = (name: string) => {
+    return <h1> {name}</h1>;
+  };
 
   return (
     <>
-      <h1>{first + second}</h1>
+      <div> {sayName("Ala")} </div>
     </>
   );
 };
