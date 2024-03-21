@@ -1,42 +1,43 @@
-import { CSSProperties, FC } from "react"; //function component
+import { FC } from "react"; //function component
 import "./App.scss";
 
 const App: FC = () => {
-  const maxLength = 26;
-  const top = Math.round(Math.random() * 500);
-  const left = Math.round(Math.random() * 500);
-  const topSecond = Math.round(Math.random() * 100);
-  const leftSecond = Math.round(Math.random() * 100);
-
-  const style: CSSProperties = {
-    position: "absolute",
-    background: "green",
+  const randomColor = () => {
+    const colors = ["red", "blue", "green", "yellow", "purple"];
+    const randomIndex = Math.round(Math.random() * colors.length - 1);
+    return colors[randomIndex];
   };
+
+  let backgroundColor = prompt("Provide color e.g. #aa1bf3");
+  let content = null;
+  if (
+    !(
+      (backgroundColor?.length === 4 && backgroundColor === "#000") ||
+      backgroundColor === "#FFF"
+    ) &&
+    !(backgroundColor?.length === 7 && backgroundColor?.startsWith("#"))
+  ) {
+    backgroundColor = "black";
+    content = <h4>"Wrong color"</h4>;
+  }
 
   return (
     <>
       <div
-        className="section-primary"
-        data-additional-value={10}
-        aria-details="lorem ipsum"
+        className="box"
+        style={{
+          backgroundColor: randomColor(),
+        }}
       />
       <div
-        className="section-primary"
-        id="second-box"
-        style={{ ...style, top, left }}
-        // style={{
-        //   position: "absolute",
-        //   top,
-        //   left,
-        //   background: "green",
-        // }}
-      ></div>
-      <div
-        className="section-primary"
-        style={{ ...style, top: `${topSecond}vh`, left: `${leftSecond}vw` }}
-      ></div>
-      <label htmlFor="login">Login</label>
-      <input type="text" id="login" minLength={10} maxLength={maxLength} />
+        className="box2"
+        style={{
+          backgroundColor,
+        }}
+      >
+        {" "}
+        {content}{" "}
+      </div>
     </>
   );
 };
