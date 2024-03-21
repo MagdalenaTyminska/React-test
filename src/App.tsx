@@ -21,6 +21,24 @@ const App: FC = () => {
     content = <h4>"Wrong color"</h4>;
   }
 
+  // const randomColor2 = () => {
+  //   let backgroundColor = prompt("Provide color e.g. #aa1bf3");
+  //   let content = null;
+  //   if (
+  //     !(
+  //       (backgroundColor?.length === 4 && backgroundColor === "#000") ||
+  //       backgroundColor === "#FFF"
+  //     ) &&
+  //     !(backgroundColor?.length === 7 && backgroundColor?.startsWith("#"))
+  //   ) {
+  //     backgroundColor = "black";
+  //     content = <h4>"Wrong color"</h4>;
+  //   }
+  //   return { backgroundColor: backgroundColor || "black", content };
+  // };
+
+  // const { backgroundColor, content } = randomColor2();
+
   return (
     <>
       <div
