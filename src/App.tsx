@@ -2,64 +2,23 @@ import { FC } from "react"; //function component
 import "./App.scss";
 
 const App: FC = () => {
-  const randomColor = () => {
-    const colors = ["red", "blue", "green", "yellow", "purple"];
-    const randomIndex = Math.round(Math.random() * colors.length - 1);
-    return colors[randomIndex];
-  };
+  let content = [<h4>"Wrong color"</h4>, <p>"change"</p>]; // można zapisać jako tablicę, <Fragment> lub <>
 
-  let backgroundColor = prompt("Provide color e.g. #aa1bf3");
-  let content = null;
-  if (
-    !(
-      (backgroundColor?.length === 4 && backgroundColor === "#000") ||
-      backgroundColor === "#FFF"
-    ) &&
-    !(backgroundColor?.length === 7 && backgroundColor?.startsWith("#"))
-  ) {
-    backgroundColor = "black";
-    content = <h4>"Wrong color"</h4>;
-  }
+  const names = ["Ala", "Ania", "Kamil", "Michał"];
+  const namesList = names.map((name) => <li>{name}</li>);
 
-  // const randomColor2 = () => {
-  //   let backgroundColor = prompt("Provide color e.g. #aa1bf3");
-  //   let content = null;
-  //   if (
-  //     !(
-  //       (backgroundColor?.length === 4 && backgroundColor === "#000") ||
-  //       backgroundColor === "#FFF"
-  //     ) &&
-  //     !(backgroundColor?.length === 7 && backgroundColor?.startsWith("#"))
-  //   ) {
-  //     backgroundColor = "black";
-  //     content = <h4>"Wrong color"</h4>;
-  //   }
-  //   return { backgroundColor: backgroundColor || "black", content };
-  // };
-
-  // const { backgroundColor, content } = randomColor2();
+  const numbers = [1, 2, 3, 4, 5, 6];
+  const numbersList = numbers
+    .filter((number) => number % 2 === 0)
+    .map((number) => <li>{number}</li>);
 
   return (
     <>
-      <div
-        className="box"
-        style={{
-          backgroundColor: randomColor(),
-        }}
-      />
-      <div
-        className="box2"
-        style={{
-          backgroundColor,
-        }}
-      >
-        {" "}
-        {content}{" "}
-      </div>
+      {content}
+      <ul>{namesList}</ul>
+      <ul>{numbersList}</ul>
     </>
   );
 };
 
 export { App };
-
-// style inline - np. dla drag and drop
