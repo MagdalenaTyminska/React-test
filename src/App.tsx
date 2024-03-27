@@ -1,24 +1,23 @@
-import { FC } from "react"; //function component
+import { FC, Fragment } from "react"; //function component
 import "./App.scss";
 
 const App: FC = () => {
-  const users = [
-    { id: "jdnhdhe7600", name: "Ala" },
-    { id: "jdnhfrkhe76", name: "Ania" },
-    { id: "jnh987khe56", name: "Kamil" },
-    { id: "j65t87khe96", name: "Michał" },
+  const numbers = [
+    { id: "4567uytd", val: 1 },
+    { id: "4589uytv", val: 2 },
+    { id: "4543uytm", val: 3 },
+    { id: "4511uytu", val: 4 },
+    { id: "4523uylr", val: 5 },
+    { id: "4987uytp", val: 6 },
   ];
-  const usersList = users.map((user) => (
-    <li key={user.id}>
-      <strong>{user.name}</strong>
-    </li>
-  ));
 
-  return (
-    <>
-      <ul>{usersList}</ul>
-    </>
-  );
+  return numbers
+    .filter((number) => number.val % 2 === 0)
+    .map((number) => (
+      <Fragment key={number.id}>
+        <strong>{number.val}</strong>
+      </Fragment>
+    ));
 };
 
 export { App };
