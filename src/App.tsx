@@ -1,22 +1,55 @@
+// import { FC } from "react"; //function component
+// import "./App.scss";
+// // import { nanoid } from "nanoid";
+
+// const App: FC = () => {
+//   const text = "Lorem ipsum";
+//   const textArray = [...text];
+//   const getLetter = textArray
+//     .filter((letter: string) => letter !== " ")
+//     .map((letter: string, index: number) => (
+//       <li key={index}>
+//         {index % 2 === 0
+//           ? letter.toLocaleLowerCase()
+//           : letter.toLocaleUpperCase()}
+//       </li>
+//     )); // konwertowanie do tablicy - dodanie do nowej tablicy
+
+//   return (
+//     <>
+//       <ul>{getLetter}</ul>
+//     </>
+//   );
+// };
+
+// export { App };
+
 import { FC } from "react"; //function component
 import "./App.scss";
+// import { nanoid } from "nanoid";
 
 const App: FC = () => {
-  let content = [<h4>"Wrong color"</h4>, <p>"change"</p>]; // można zapisać jako tablicę, <Fragment> lub <>
+  const text = "Lorem ipsum";
+  const textArray = [...text];
+  const getLetter = (letter: string, index: number) => {
+    if (letter === " ") {
+      return null;
+    }
 
-  const names = ["Ala", "Ania", "Kamil", "Michał"];
-  const namesList = names.map((name) => <li>{name}</li>);
-
-  const numbers = [1, 2, 3, 4, 5, 6];
-  const numbersList = numbers
-    .filter((number) => number % 2 === 0)
-    .map((number) => <li>{number}</li>);
+    if (index % 2 === 0) return letter.toLocaleLowerCase();
+    return letter.toLocaleUpperCase();
+  };
 
   return (
     <>
-      {content}
-      <ul>{namesList}</ul>
-      <ul>{numbersList}</ul>
+      <ul>
+        {textArray.map(
+          (letter: string, index: number) =>
+            getLetter(letter, index) !== null && (
+              <li key={index}>{getLetter(letter, index)}</li>
+            )
+        )}
+      </ul>
     </>
   );
 };
