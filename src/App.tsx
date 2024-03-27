@@ -1,25 +1,30 @@
-import { FC, Fragment } from "react"; //function component
+import { FC } from "react"; //function component
 import "./App.scss";
 import { nanoid } from "nanoid";
 
+type SingleElement = {
+  id: string;
+  color: string;
+  size: number;
+};
+
 const App: FC = () => {
-  const numbers = [
-    { id: nanoid(), val: 1 },
-    { id: nanoid(), val: 2 },
-    { id: nanoid(), val: 3 },
-    { id: nanoid(), val: 4 },
-    { id: nanoid(), val: 5 },
-    { id: nanoid(), val: 6 },
+  const elements: SingleElement[] = [
+    { id: nanoid(), color: "blue", size: 10 },
+    { id: nanoid(), color: "green", size: 14 },
+    { id: nanoid(), color: "yellow", size: 18 },
   ];
 
-  return numbers
-    .filter((number) => number.val % 2 === 0)
-    .map((number) => (
-      <Fragment key={number.id}>
-        <strong>{number.val}</strong>
-        <span>{number.id}</span>
-      </Fragment>
-    ));
+  return elements.map((element) => (
+    <div
+      key={element.id}
+      style={{
+        backgroundColor: element.color,
+        width: element.size,
+        height: element.size,
+      }}
+    />
+  ));
 };
 
 export { App };
