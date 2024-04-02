@@ -1,7 +1,7 @@
-const LoremIpsum = () => (
+export const LoremIpsum = () => (
   <>
-    <h2>Lorem ipsum</h2>;
+    <h2>Lorem ipsum</h2>
   </>
 );
-export { LoremIpsum };
-// return nie jest potzrebny jeśli nie mamy logiki
+
+// return nie jest potrzebny jeśli nie mamy logiki
