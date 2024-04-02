@@ -2,7 +2,11 @@ import "./App.scss";
 import { HelloWorld } from "./HelloWorld";
 
 const App = () => {
-  return <HelloWorld />;
+  return (
+    <>
+      <HelloWorld />
+    </>
+  );
 };
 
 export { App };
