@@ -1,16 +1,15 @@
 import "./App.scss";
-import { ManyValues } from "./ManyValues";
+import { Foo } from "./Foo";
 
 const App = () => {
   return (
     <>
-      <ManyValues
-        first={1}
-        second={2}
-        third={3}
-        fourth={4}
-        fifth={5}
-        sixth={6}
+      <Foo
+        elements={[
+          { id: 1, value: "Lorem ipsum" },
+          { id: 2, value: "Dolor sit" },
+          { id: 3, value: "Amet" },
+        ]}
       />
     </>
   );
