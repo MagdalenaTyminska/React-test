@@ -1,10 +1,10 @@
 import "./App.scss";
-import { HeaderWithProfile } from "./HeaderWithProfile";
+import { Level1 } from "./Level1";
 
 const App = () => {
   return (
     <>
-      <HeaderWithProfile />
+      <Level1 value={1234} />
     </>
   );
 };
