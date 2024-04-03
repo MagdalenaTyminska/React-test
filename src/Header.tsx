@@ -1,13 +1,16 @@
-import { PropsWithChildren, ReactNode } from "react";
+import { ReactNode } from "react";
 
-// type HeaderProps = {
-//   children: ReactNode;
-// };
-
-type HeaderProps = PropsWithChildren;
+type HeaderProps = {
+  children: ReactNode;
+};
 
 const Header = ({ children }: HeaderProps) => {
-  return <h1>{children}</h1>;
+  return (
+    <header>
+      <h1>Logo</h1>
+      {children}
+    </header>
+  );
 };
 
 export { Header };

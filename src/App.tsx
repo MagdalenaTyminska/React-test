@@ -1,10 +1,10 @@
 import "./App.scss";
-import { Header } from "./Header";
+import { HeaderWithProfile } from "./HeaderWithProfile";
 
 const App = () => {
   return (
     <>
-      <Header>Lorem ipsum</Header>
+      <HeaderWithProfile />
     </>
   );
 };
