@@ -1,10 +1,12 @@
 import "./App.scss";
-import { HelloWorld } from "./HelloWorld";
+import { Grandparent } from "./Grandparent";
+import { Nothing } from "./Nothing";
 
 const App = () => {
   return (
     <>
-      <HelloWorld />
+      <Grandparent />
+      <Nothing />
     </>
   );
 };
