@@ -1,10 +1,10 @@
 import "./App.scss";
-import { Level1 } from "./Level1";
+import { Hello } from "./Hello";
 
 const App = () => {
   return (
     <>
-      <Level1 value={1234} />
+      <Hello name=" Marcin" />
     </>
   );
 };
