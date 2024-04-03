@@ -1,8 +1,7 @@
+import { SingleElement } from "./types";
+
 type Props = {
-  elements: {
-    id: number;
-    value: string;
-  }[];
+  elements: SingleElement[];
 };
 
 const Foo = ({ elements }: Props) => {
