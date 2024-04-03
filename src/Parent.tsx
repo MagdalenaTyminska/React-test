@@ -10,7 +10,7 @@ const Parent = () => {
       value: `Value: ${Math.round(Math.random() * 1000)}`,
     });
   }
-  return <Foo elements={result} />;
+  return <Foo elements={result} single={{ id: 10, value: "Lorem ipsum" }} />;
 };
 
 export { Parent };
