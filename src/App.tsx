@@ -1,10 +1,10 @@
 import "./App.scss";
-import { Parent } from "./Parent";
+import { Cart } from "./Cart";
 
 const App = () => {
   return (
     <>
-      <Parent />
+      <Cart />
     </>
   );
 };
