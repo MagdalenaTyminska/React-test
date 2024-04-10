@@ -1,10 +1,10 @@
 import "./App.scss";
-import { Cart } from "./Cart";
+import { Hello } from "./Hello";
 
 const App = () => {
   return (
     <>
-      <Cart />
+      <Hello who="Ala" />
     </>
   );
 };
