@@ -1,5 +1,7 @@
-export const Child = () => (
-  <>
-    <h3>I am a child</h3>
-  </>
-);
+type Props = {
+  value: number;
+};
+
+export const Child = ({ value }: Props) => {
+  return <h1>I got a value {value}</h1>;
+};

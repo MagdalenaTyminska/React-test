@@ -1,12 +1,9 @@
 import { Parent } from "./Parent";
 
-const Grandparent = () => {
-  return (
-    <>
-      <h1>I am a grandfather</h1>
-      <Parent />
-    </>
-  );
+type Props = {
+  value: number;
 };
 
-export { Grandparent };
+export const Grandparent = ({ value }: Props) => {
+  return <Parent value={value} />;
+};
