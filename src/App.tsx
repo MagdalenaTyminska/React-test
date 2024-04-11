@@ -1,10 +1,16 @@
 import "./App.scss";
 import { Container } from "./Container";
+import { Content } from "./Content";
 
 const App = () => {
   return (
     <>
-      <Container title={"Ala ma kota"} children={<h2>Lorem Ipsum</h2>} />
+      <Container>
+        <Content />{" "}
+      </Container>
+      <Container>
+        <footer>Jestem stopką</footer>
+      </Container>
     </>
   );
 };
