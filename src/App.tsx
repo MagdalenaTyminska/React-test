@@ -1,18 +1,12 @@
 import "./App.scss";
-import { Container } from "./Container";
-import { Content } from "./Content";
-import { PageHeader } from "./PageHeader";
+import { About } from "./About";
+import { Shop } from "./Shop";
 
 const App = () => {
   return (
     <>
-      <Container>
-        <PageHeader title={"Lorem ipsum"} left={<button>[-]</button>} />
-        <Content />{" "}
-      </Container>
-      <Container>
-        <footer>Jestem stopką</footer>
-      </Container>
+      <About />
+      <Shop />
     </>
   );
 };
