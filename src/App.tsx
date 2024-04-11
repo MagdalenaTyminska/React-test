@@ -4,8 +4,8 @@ import { Container } from "./Container";
 const App = () => {
   return (
     <>
-      <Container>
-        <h1>Lorem Ipsum</h1>
+      <Container title={"Ala ma kota"}>
+        <h2>Lorem Ipsum</h2>
       </Container>
     </>
   );
