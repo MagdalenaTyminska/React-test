@@ -1,14 +1,12 @@
 import "./App.scss";
-import { Hello } from "./Hello";
-import { Sum } from "./Sum";
-import { Grandparent } from "./Grandparent";
+import { Container } from "./Container";
 
 const App = () => {
   return (
     <>
-      <Hello who="Ala" />
-      <Sum a={2} b={3} />
-      <Grandparent value={10} />
+      <Container>
+        <h1>Lorem Ipsum</h1>
+      </Container>
     </>
   );
 };
