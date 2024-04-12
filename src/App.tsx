@@ -1,12 +1,10 @@
 import "./App.scss";
-import { About } from "./About";
-import { Shop } from "./Shop";
+import { HeaderWithProfile } from "./HeaderWithProfile";
 
 const App = () => {
   return (
     <>
-      <About />
-      <Shop />
+      <HeaderWithProfile />
     </>
   );
 };
