@@ -3,5 +3,14 @@ type Props = {
 };
 
 export const Child = ({ callback }: Props) => {
-  return <button onClick={callback}>Click</button>;
+  const handleLockaClick = () => {
+    console.log("Clicked from child");
+  };
+
+  return (
+    <>
+      <button onClick={callback}>Click</button>
+      <button onClick={handleLockaClick}>Click</button>
+    </>
+  );
 };
