@@ -5,11 +5,11 @@ type Props = {
   children: ReactNode;
 };
 
-export const Header = ({ title, children }: Props) => {
+export const PageWrapper = ({ title, children }: Props) => {
   return (
-    <>
+    <div style={{ maxWidth: "800px", margin: "0 auto" }}>
       <h1>{title}</h1>
       {children}
-    </>
+    </div>
   );
 };
