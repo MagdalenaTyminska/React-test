@@ -3,7 +3,5 @@ type Props = {
 };
 
 export const Child = ({ callback }: Props) => {
-  callback();
-
-  return null;
+  return <button onClick={callback}>Click</button>;
 };
