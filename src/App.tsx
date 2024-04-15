@@ -1,12 +1,23 @@
 import "./App.scss";
-import { About } from "./About";
-import { Shop } from "./Shop";
+import { PageWrapper } from "./PageWrapper";
+import { Modal } from "./Modal";
+import { ButtonSuccess } from "./ButtonSuccess";
+import { ButtonDanger } from "./ButtonDanger";
 
 const App = () => {
   return (
     <>
-      <About />
-      <Shop />
+      <PageWrapper title="Hello world" children={"Lorem ipsum"} />
+      <Modal
+        title={"Potwierdź"}
+        text={"Czy na pewno chcesz to wykonać?"}
+        controls={<ButtonSuccess label={"Tak"} />}
+      />
+      <Modal
+        title={"Ostrzeżenie"}
+        text={"Czy chcesz usunąć ten obiekt?"}
+        controls={<ButtonDanger label={"Usuń"} />}
+      />
     </>
   );
 };
