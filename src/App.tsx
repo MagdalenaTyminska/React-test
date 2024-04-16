@@ -1,10 +1,10 @@
 import "./App.scss";
-import { Parents } from "./Parents";
+import { Buttons } from "./Buttons";
 
 const App = () => {
   return (
     <>
-      <Parents />
+      <Buttons />
     </>
   );
 };
