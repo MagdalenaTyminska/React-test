@@ -1,10 +1,10 @@
 import "./App.scss";
-import { Foo } from "./Foo";
+import { Parents } from "./Parents";
 
 const App = () => {
   return (
     <>
-      <Foo text={"Lorem ipsum"} />
+      <Parents />
     </>
   );
 };
