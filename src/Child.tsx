@@ -1,4 +1,4 @@
-import { SyntheticEvent } from "react";
+import { SyntheticEvent, ChangeEvent } from "react";
 
 type Props = {
   callback: () => void;
@@ -13,8 +13,8 @@ export const Child = ({ callback }: Props) => {
     console.log("Clicked from child", identifier);
   };
 
-  const handleChange = (e: SyntheticEvent) => {
-    console.log((e.target as any).value);
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    console.log(e.target.value);
   };
 
   return (
