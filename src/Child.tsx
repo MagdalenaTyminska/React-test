@@ -9,8 +9,8 @@ export const Child = ({ callback }: Props) => {
 
   return (
     <>
-      <button onClick={callback}>Click</button>
-      <button onClick={handleLockaClick}>Click</button>
+      <button onDoubleClick={callback}>Click</button>
+      <button onDoubleClick={handleLockaClick}>Click</button>
     </>
   );
 };
