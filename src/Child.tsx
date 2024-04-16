@@ -5,14 +5,21 @@ type Props = {
 };
 
 export const Child = ({ callback }: Props) => {
-  const handleLockaClick = (e: SyntheticEvent) => {
+  const handleLocalClick = (e: SyntheticEvent) => {
     console.log("Clicked from child", e);
+  };
+
+  const handleAnotherClick = (identifier: string, e: SyntheticEvent) => {
+    console.log("Clicked from child", identifier, e);
   };
 
   return (
     <>
       <button onDoubleClick={callback}>Click</button>
-      <button onDoubleClick={handleLockaClick}>Click</button>
+      <button onDoubleClick={handleLocalClick}>Click</button>
+      <button onDoubleClick={(event) => handleAnotherClick("test-id", event)}>
+        Click
+      </button>
     </>
   );
 };
