@@ -1,20 +1,22 @@
+import { useState } from "react";
 import "./App.scss";
-import { Buttons } from "./Buttons";
-import { Parent } from "./Parent";
-import { List } from "./List";
-import { Ex4 } from "./Ex4";
-import { Ex4a } from "./Ex4a";
-import { Ex5 } from "./Ex5";
 
 const App = () => {
+  const [counter, setCounter] = useState(0);
+
+  const increment = () => {
+    setCounter((prevCounter) => prevCounter + 1);
+  };
+
+  const reset = () => {
+    setCounter(0);
+  };
+
   return (
     <>
-      <Buttons />
-      <Parent />
-      <List />
-      <Ex4 />
-      <Ex4a />
-      <Ex5 />
+      <h1>{counter}</h1>
+      <button onClick={increment}>+1</button>
+      <button onClick={reset}>reset</button>
     </>
   );
 };
