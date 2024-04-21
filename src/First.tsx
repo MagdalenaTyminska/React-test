@@ -1,58 +1,42 @@
-import { useState } from "react";
+import { useState, MouseEventHandler } from "react";
+
+// type mousePosition = {
+//   mouseX: number;
+//   mouseY: number;
+// };
+
+// export const First = () => {
+//   const [position, setPosition] = useState<mousePosition>({
+//     mouseX: 0,
+//     mouseY: 0,
+//   });
 
 export const First = () => {
-  const [text, setText] = useState("");
-  const sentence = `Hello World!`;
+  const [position, setPosition] = useState<{ mouseX: number; mouseY: number }>({
+    mouseX: 0,
+    mouseY: 0,
+  });
 
-  const addLetter = () => {
-    const nextLetterIndex = text.length;
-    if (nextLetterIndex < sentence.length) {
-      setText((prevText) => `${prevText}${sentence[nextLetterIndex]}`);
-    }
-  };
+  const handleMouseMove: MouseEventHandler<HTMLDivElement> = (e) => {
+    const mouseX = e.clientX;
+    const mouseY = e.clientY;
 
-  const resetText = () => {
-    setText("");
+    setPosition({ mouseX, mouseY });
   };
 
   return (
     <>
-      <h1>{text}</h1>
-      {text.length === sentence.length ? (
-        <button onClick={resetText}>Reset</button>
-      ) : (
-        <button onClick={addLetter}>+1</button>
-      )}
+      <div
+        onMouseMove={handleMouseMove}
+        style={{
+          width: 500,
+          height: 500,
+          border: "1px solid red",
+        }}
+      >
+        X: {position.mouseX} {""}
+        Y: {position.mouseY}
+      </div>
     </>
   );
 };
-
-// import { useState } from "react";
-
-// export const First = () => {
-//   const [text, setText] = useState<string[]>([]);
-//   const sentence = `Hello World!`;
-
-//   const addLetter = () => {
-//     const nextLetterIndex = text.length;
-//     if (nextLetterIndex < sentence.length) {
-//       const nextLetter = sentence[nextLetterIndex];
-//       setText((prevText) => [...prevText, nextLetter]);
-//     }
-//   };
-
-//   const resetText = () => {
-//     setText([]);
-//   };
-
-//   return (
-//     <>
-//       <h1>{text}</h1>
-//       {text.length === sentence.length ? (
-//         <button onClick={resetText}>Reset</button>
-//       ) : (
-//         <button onClick={addLetter}>+1</button>
-//       )}
-//     </>
-//   );
-// };
