@@ -7,12 +7,12 @@ export const Second = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCounter((prevCounter) => prevCounter + 1);
-    }, intervalTime);
+    }, intervalTime); //powiązanie z drugim stanem
 
     return () => {
-      clearInterval(interval);
+      clearInterval(interval); // zakończenie poprzedniego interwału
     };
-  }, [intervalTime]);
+  }, [intervalTime]); // przekazanie nowego interwału
 
   const increaseTime = () => {
     setIntervalTime((prevTime) => prevTime + 1000);
