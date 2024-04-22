@@ -1,42 +1,17 @@
-import { useState, MouseEventHandler } from "react";
-
-// type mousePosition = {
-//   mouseX: number;
-//   mouseY: number;
-// };
-
-// export const First = () => {
-//   const [position, setPosition] = useState<mousePosition>({
-//     mouseX: 0,
-//     mouseY: 0,
-//   });
+import { useEffect, useState } from "react";
 
 export const First = () => {
-  const [position, setPosition] = useState<{ mouseX: number; mouseY: number }>({
-    mouseX: 0,
-    mouseY: 0,
-  });
+  const [counter, setCounter] = useState(0);
 
-  const handleMouseMove: MouseEventHandler<HTMLDivElement> = (e) => {
-    const mouseX = e.clientX;
-    const mouseY = e.clientY;
-
-    setPosition({ mouseX, mouseY });
-  };
+  useEffect(() => {
+    setInterval(() => {
+      setCounter((prevCounter) => prevCounter + 1);
+    }, 1000);
+  }, []);
 
   return (
     <>
-      <div
-        onMouseMove={handleMouseMove}
-        style={{
-          width: 500,
-          height: 500,
-          border: "1px solid red",
-        }}
-      >
-        X: {position.mouseX} {""}
-        Y: {position.mouseY}
-      </div>
+      <h1>{counter}</h1>
     </>
   );
 };

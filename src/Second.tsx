@@ -1,22 +1,27 @@
-import { useState } from "react";
-import { nanoid } from "nanoid";
+import { useEffect, useState } from "react";
 
 export const Second = () => {
-  const [numbers, setNumbers] = useState<number[]>([]);
+  const [counter, setCounter] = useState(0);
+  const [intervalTime, setIntervalTime] = useState(1000);
 
-  const addNumber = () => {
-    const newNumber = Math.round(Math.random() * 1000);
-    setNumbers([...numbers, newNumber]);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCounter((prevCounter) => prevCounter + 1);
+    }, intervalTime); //powiązanie z drugim stanem
+
+    return () => {
+      clearInterval(interval); // zakończenie poprzedniego interwału
+    };
+  }, [intervalTime]); // przekazanie nowego interwału
+
+  const increaseTime = () => {
+    setIntervalTime((prevTime) => prevTime + 1000);
   };
 
   return (
     <>
-      <button onClick={addNumber}>Add random number</button>
-      <ul>
-        {numbers.map((number) => (
-          <li key={nanoid()}>{number}</li>
-        ))}
-      </ul>
+      <h1>{counter}</h1>
+      <button onClick={increaseTime}>Increase time</button>
     </>
   );
 };
