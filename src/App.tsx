@@ -1,14 +1,14 @@
 import "./App.scss";
-// import { First } from "./First";
-// import { Second } from "./Second";
-import { Third } from "./Third";
+import { AgeVerifier } from "./AgeVerifier";
+import { HelloSomebody } from "./HelloSomebody";
+import { SimpleAgeVerifier } from "./SimpleAgeVerifier";
 
 const App = () => {
   return (
     <>
-      {/* <First />
-      <Second /> */}
-      <Third />
+      <AgeVerifier age={17} />
+      <HelloSomebody name={"Ala"} />
+      <SimpleAgeVerifier age={17} />
     </>
   );
 };
