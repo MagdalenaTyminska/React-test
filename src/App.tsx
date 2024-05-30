@@ -1,9 +1,9 @@
-import './App.scss'
-import { First } from './First'
-import { Second } from './Second'
-import { Third } from './Third'
-import { FourthMother } from './FourthMother'
-import { Fifth } from './Fifth'
+import './App.scss';
+import { First } from './First';
+import { Second } from './Second';
+import { Third } from './Third';
+import { FourthMother } from './FourthMother';
+import { Fifth } from './Fifth';
 
 const App = () => {
 	return (
@@ -14,7 +14,7 @@ const App = () => {
 			<FourthMother />
 			<Fifth />
 		</>
-	)
-}
+	);
+};
 
-export { App }
+export { App };

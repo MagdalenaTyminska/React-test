@@ -10,7 +10,8 @@
 		"prettify": "npx prettier . --write",
 		"preview": "vite preview",
 		"typecheck": "tsc --noEmit",
-		"prepare": "husky install"
+		"prepare": "husky install",
+		"lint-staged": "npx lint-staged"
 	},
 	"dependencies": {
 		"nanoid": "^5.0.7",

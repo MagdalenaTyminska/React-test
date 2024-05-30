@@ -1,13 +1,13 @@
-import { FourthLight } from './FourthLight'
-import { FourthDark } from './FourthDark'
-import { useState } from 'react'
+import { FourthLight } from './FourthLight';
+import { FourthDark } from './FourthDark';
+import { useState } from 'react';
 
 export const FourthMother = () => {
-	const [isTurnedOn, setTurnedOn] = useState(false)
+	const [isTurnedOn, setTurnedOn] = useState(false);
 
 	const toggleLight = () => {
-		setTurnedOn((prevTurnedOn) => !prevTurnedOn)
-	}
+		setTurnedOn((prevTurnedOn) => !prevTurnedOn);
+	};
 
 	return (
 		<>
@@ -16,5 +16,5 @@ export const FourthMother = () => {
 			</button>
 			{isTurnedOn ? <FourthLight /> : <FourthDark />}
 		</>
-	)
-}
+	);
+};
