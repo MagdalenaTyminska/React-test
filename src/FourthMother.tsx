@@ -1,6 +1,6 @@
-import { FourthLight } from "./FourthLight";
-import { FourthDark } from "./FourthDark";
-import { useState } from "react";
+import { FourthLight } from './FourthLight';
+import { FourthDark } from './FourthDark';
+import { useState } from 'react';
 
 export const FourthMother = () => {
 	const [isTurnedOn, setTurnedOn] = useState(false);
