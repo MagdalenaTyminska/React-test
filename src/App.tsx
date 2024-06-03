@@ -1,4 +1,4 @@
-import "./App.scss";
+import './App.scss';
 import { First } from './First';
 import { Second } from './Second';
 import { Third } from './Third';
