@@ -1,4 +1,6 @@
 module.exports = {
   singleQuote: true,
-  jsxSingleQuote: false,
+  jsxSingleQuote: true,
+  useTabs: true,
+  tabWidth: 2,
 };
