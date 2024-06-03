@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 export const Fifth = () => {
 	const [counter, setCounter] = useState(0);
@@ -28,7 +28,7 @@ export const Fifth = () => {
 	return (
 		<ul>
 			<div>{counter}</div>
-			<li>{counter % 2 === 0 ? 'parzysta' : 'nieparzysta'}</li>
+			<li>{counter % 2 === 0 ? "parzysta" : "nieparzysta"}</li>
 			{counter > 0 && (
 				<li> Najwyższy dzielnik: {getHighestDivider(counter)}</li>
 			)}
