@@ -19,6 +19,9 @@ export const useForm = <T>(initalValues: T): useFormReturn<T> => {
 		if (target.type === 'checkbox' && isCheckboxElement(target)) {
 			return target.checked;
 		}
+
+		if (target.type === 'number') return Number(target.value);
+
 		return target.value;
 	};
 
@@ -28,14 +31,7 @@ export const useForm = <T>(initalValues: T): useFormReturn<T> => {
 		setFormState((prevState) => ({
 			...prevState,
 			[e.target.name]: getValue(e.target),
-
-			// setFormState((prevState) => ({
-			// ...prevState,
-			// [e.target.name]:
-			// 	e.target.type === 'checkbox'
-			// 		? (e.target as HTMLInputElement).checked // - bez metody isCheckboxElement
-			// : e.target.value,
-		})); //computed properties - []- dynamiczne ustawienie właściwości
+		}));
 	};
 
 	return [formState, handleChange];
