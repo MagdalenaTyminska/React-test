@@ -1,10 +1,10 @@
 import './App.scss';
-import { Form2 } from './Form2';
+import { Task2 } from './Task2';
 
 export const App = () => {
 	return (
 		<>
-			<Form2 />
+			<Task2 />
 		</>
 	);
 };
