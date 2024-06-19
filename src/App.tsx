@@ -1,10 +1,12 @@
 import './App.scss';
-import { Task2 } from './Task2';
+import { HW1 } from './HW1';
+// import { HW2 } from './HW2';
 
 export const App = () => {
 	return (
 		<>
-			<Task2 />
+			<HW1 />
+			{/* <HW2 /> */}
 		</>
 	);
 };
