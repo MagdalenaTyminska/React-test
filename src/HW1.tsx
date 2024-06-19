@@ -33,8 +33,6 @@ export const HW1 = () => {
 	const handleSubmit = (e: FormEvent) => {
 		e.preventDefault();
 
-		let isSuccess = true;
-
 		const newErrors: FormErrors = {
 			login: [],
 			password: [],
@@ -43,22 +41,18 @@ export const HW1 = () => {
 
 		if (!login) {
 			newErrors.login.push('This field is require!');
-			isSuccess = false;
 		}
 
 		if (login.length < 3) {
 			newErrors.login.push('Login must be at least 3 characters long!');
-			isSuccess = false;
 		}
 
 		if (!password) {
 			newErrors.password.push('This field is require!');
-			isSuccess = false;
 		}
 
 		if (password.length < 6) {
 			newErrors.password.push('Password must be at least 6 characters long!');
-			isSuccess = false;
 		}
 
 		const regex = new RegExp(/(?=.*[a-z])(?=.*[A-Z])(?=.*\W)/g);
@@ -67,13 +61,15 @@ export const HW1 = () => {
 			newErrors.password.push(
 				'Password must contain a lowercaase letter, an uppercase letter and special charakter!',
 			);
-			isSuccess = false;
 		}
 
 		if (!rulesAccepted) {
 			newErrors.rulesAccepted.push('Acceptance of the regulations is require!');
-			isSuccess = false;
 		}
+
+		const isSuccess = !Object.values(newErrors).some(
+			(errorList) => errorList.length > 0,
+		);
 
 		setErrors(newErrors);
 		setSuccess(isSuccess);
