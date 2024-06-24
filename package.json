@@ -9,7 +9,7 @@
 		"lint": "eslint --report-unused-disable-directives --max-warnings 0",
 		"prettify": "npx prettier --write",
 		"preview": "vite preview",
-		"typecheck": "tsc --noEmit --jsx react-jsx",
+		"typecheck": "tsc --noEmit --jsx react-jsx --downlevelIteration",
 		"prepare": "husky install",
 		"lint-staged": "npx lint-staged"
 	},
@@ -33,7 +33,7 @@
 		"nanoid": "^5.0.7",
 		"prettier": "^3.3.0",
 		"sass": "^1.72.0",
-		"typescript": "^5.2.2",
+		"typescript": "^5.5.2",
 		"vite": "^5.1.6"
 	}
 }
