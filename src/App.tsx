@@ -1,12 +1,20 @@
+import { useRef } from 'react';
 import './App.scss';
-// import { HW1 } from './HW1';
-import { HW2 } from './HW2';
 
 export const App = () => {
+	const inputRef = useRef<HTMLInputElement>(null);
+
+	const handleClick = () => {
+		// niepoprawny zapis
+		// document.querySelector('input')?.select();
+		// const inputRef = useRef<HTMLInputElement>(null);
+		inputRef.current?.focus();
+	};
+
 	return (
 		<>
-			{/* <HW1 /> */}
-			<HW2 />
+			<button onClick={handleClick}>Focus</button>
+			<input type='text' ref={inputRef} />
 		</>
 	);
 };
