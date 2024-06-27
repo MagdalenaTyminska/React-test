@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import './App.scss';
-import { Input } from './Input';
+import { ForwardedInput } from './ForwardedInput';
 
 export const App = () => {
 	const inputRef = useRef<HTMLInputElement>(null);
@@ -12,7 +12,7 @@ export const App = () => {
 	return (
 		<>
 			<button onClick={handleClick}>Focus</button>
-			<Input value='Lorem ipsum' passedRef={inputRef} />
+			<ForwardedInput value='Lorem ipsum' ref={inputRef} />
 		</>
 	);
 };
