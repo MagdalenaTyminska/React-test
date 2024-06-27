@@ -1,9 +1,9 @@
 import { useRef } from 'react';
 import './App.scss';
-import { ForwardedInput } from './ForwardedInput';
+import { LimitedForwarded, PartialHTMLInputElement } from './LimitedForwarded';
 
 export const App = () => {
-	const inputRef = useRef<HTMLInputElement>(null);
+	const inputRef = useRef<PartialHTMLInputElement>(null);
 
 	const handleClick = () => {
 		inputRef.current?.focus();
@@ -12,7 +12,7 @@ export const App = () => {
 	return (
 		<>
 			<button onClick={handleClick}>Focus</button>
-			<ForwardedInput value='Lorem ipsum' ref={inputRef} />
+			<LimitedForwarded value='Lorem ipsum' ref={inputRef} />
 		</>
 	);
 };
