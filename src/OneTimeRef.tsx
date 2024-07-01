@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useOneTimeRef } from './hooks/useOneTimeRef';
 
 const getRandomValue = () => {
 	const random = Math.round(Math.random() * 1000);
@@ -7,11 +8,8 @@ const getRandomValue = () => {
 };
 
 export const OneTimeRef = () => {
-	const value = useRef<number | null>(null);
-	if (value.current === null) {
-		value.current = getRandomValue();
-	}
-	// dzięki if funkcaj wywołu się tylko raz
+	const value = useOneTimeRef(getRandomValue);
+	// dzięki hookowi funkcja wywołuje się tylko raz, TO HOOK MUSI WYWOŁYWAĆ FUNKCJĘ
 
 	const [counter, setCounter] = useState(0);
 
