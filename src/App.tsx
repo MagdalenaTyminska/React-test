@@ -1,12 +1,20 @@
+import { useRef } from 'react';
 import './App.scss';
-// import { HW1 } from './HW1';
-import { HW2 } from './HW2';
+import { LimitedForwarded, PartialHTMLInputElement } from './LimitedForwarded';
+import { OneTimeRef } from './OneTimeRef';
 
 export const App = () => {
+	const inputRef = useRef<PartialHTMLInputElement>(null);
+
+	const handleClick = () => {
+		inputRef.current?.focus();
+	};
+
 	return (
 		<>
-			{/* <HW1 /> */}
-			<HW2 />
+			<button onClick={handleClick}>Focus</button>
+			<LimitedForwarded value='Lorem ipsum' ref={inputRef} />
+			<OneTimeRef />
 		</>
 	);
 };
