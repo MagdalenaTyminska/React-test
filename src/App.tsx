@@ -1,10 +1,12 @@
 import './App.scss';
-import { Exercise2 } from './Exercise2';
+// import { Homework1 } from './Homework1';
+import { Homework2 } from './Homework2';
 
 export const App = () => {
 	return (
 		<>
-			<Exercise2 />
+			{/* <Homework1 /> */}
+			<Homework2 />
 		</>
 	);
 };
