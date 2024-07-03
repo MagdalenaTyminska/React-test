@@ -1,14 +1,18 @@
+import { useState } from 'react';
 import './App.scss';
-// import { Homework1 } from './Homework1';
-// import { Homework2 } from './Homework2';
-import { Homework2b } from './Homework2b';
+import { Child } from './Child';
 
 export const App = () => {
+	const [counter, setCounter] = useState(0);
+
+	const inc = () => {
+		setCounter((prevCounter) => prevCounter + 1);
+	};
+
 	return (
 		<>
-			{/* <Homework1 /> */}
-			{/* <Homework2 /> */}
-			<Homework2b />
+			<Child value={1} />
+			<button onClick={inc}>+1 {counter}</button>
 		</>
 	);
 };
