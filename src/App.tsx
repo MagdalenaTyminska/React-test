@@ -1,18 +1,33 @@
 import { useState } from 'react';
 import './App.scss';
-import { Child } from './Child';
+import { Parent } from './Parent';
 
 export const App = () => {
-	const [counter, setCounter] = useState(0);
+	const [id, setId] = useState(1000);
 
-	const inc = () => {
-		setCounter((prevCounter) => prevCounter + 1);
+	const randomizeId = () => {
+		setId(Math.round(Math.random() * 10000));
 	};
 
 	return (
 		<>
-			<Child value={1} />
-			<button onClick={inc}>+1 {counter}</button>
+			<div>
+				<h1>ID: {id}</h1>
+				<button onClick={randomizeId}>Randomize ID</button>
+				<Parent id={id} />
+			</div>
 		</>
 	);
 };
+
+// import './App.scss';
+// import { Parent } from './Parent';
+
+// export const App = () => {
+
+// 	return (
+// 		<>
+// 			<Parent />
+// 		</>
+// 	);
+// };
