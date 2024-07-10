@@ -1,28 +1,43 @@
+import { GrandChild } from './GrandChild';
 import { memo, useMemo } from 'react';
 
 type ChildProps = {
-	value: number[];
-	counter: number;
+	second: number;
 };
 
-const heavyCalculations = (numbers: number[]) => {
-	console.log('Heavy calculations start');
-	let result = numbers.length ** 2;
-	for (let i = 0; i < 1000000; i++) {
-		result += (result * 2) % 255;
-	}
-	console.log('Heavy calculations stop');
-	return result;
-};
+export const Child = memo(({ second }: ChildProps) => {
+	console.log('Rendering child');
 
-export const Child = memo(({ value, counter }: ChildProps) => {
-	//renderuje się tylko przy zmianie propsów
-	const calculatedValue = useMemo(() => heavyCalculations(value), [value]);
-	console.log('Render');
+	const generateArray = (howMany: number) => {
+		const arr: number[] = [];
+
+		for (let i = 0; i < howMany; i++) {
+			arr.push(Math.round(Math.random() * 1000));
+		}
+
+		return arr;
+	};
+
+	const elements = useMemo(() => generateArray(second), [second]);
+
 	return (
-		<h1>
-			Hello world!{value.join()} {counter}
-			{calculatedValue}
-		</h1>
+		<>
+			<h2>I am a child!</h2>
+			<GrandChild elements={elements} />
+		</>
 	);
 });
+
+// import { GrandChild } from './GrandChild';
+// import { memo } from 'react';
+
+// export const Child = memo(() => {
+// 	console.log('Rendering child');
+
+// 	return (
+// 		<>
+// 			<h2>I am a child!</h2>
+// 			<GrandChild />
+// 		</>
+// 	);
+// });
