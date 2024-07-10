@@ -1,42 +1,25 @@
-import { useCallback } from 'react';
-import { ChildWithFunction } from './ChildWithFunction';
+import { useEffect, useState } from 'react';
+import { Child } from './Child';
 
-type ParentProps = {
-	id: number;
-};
+export const Parent = () => {
+	const [counter, setCounter] = useState(0);
 
-export const Parent = ({ id }: ParentProps) => {
-	const foo = useCallback(
-		(value: number) => {
-			const url = `https://api.test.com/${id}?value=${value}`;
-			console.log('Calling', url);
-		},
-		[id],
+	useEffect(() => {
+		const interval = setInterval(() => {
+			setCounter((prevCounter) => prevCounter + 1);
+		}, 1000);
+
+		return () => {
+			clearInterval(interval);
+		};
+	}, []);
+
+	console.log('Rendering parent');
+
+	return (
+		<>
+			<h1> {counter} </h1>
+			<Child />
+		</>
 	);
-
-	return <ChildWithFunction callback={foo} />;
 };
-
-// import { useState } from 'react';
-// import { Child } from './Child';
-
-// export const Parent = () => {
-// 	const [counter, setCounter] = useState(0);
-// 	const [arr, setArr] = useState([5]);
-
-// 	const inc = () => {
-// 		setCounter((prevCounter) => prevCounter + 1);
-// 	};
-
-// 	const addToArray = () => {
-// 		setArr((prevArr) => [...prevArr, Math.round(Math.random() * 10)]);
-// 	};
-
-// 	return (
-// 		<>
-// 			<Child value={arr} counter={counter} />
-// 			<button onClick={inc}>+1 </button>
-// 			<button onClick={addToArray}>Add to array</button>
-// 		</>
-// 	);
-// };
