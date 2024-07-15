@@ -24,7 +24,6 @@ export const RandomArraySorter = ({ direction }: RandomArraySorterProps) => {
 	useEffect(() => {
 		const interval = setInterval(() => {
 			const newLength = Math.round(Math.random() * 15) + 5;
-
 			setRandomLength(newLength);
 			lengthRef.current = newLength;
 		}, 1000);
