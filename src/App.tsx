@@ -1,12 +1,10 @@
 import './App.scss';
-import { RandomArraySorter } from './RandomArraySorter';
-import { Form } from './Form';
+import { List } from './List';
 
 export const App = () => {
 	return (
 		<>
-			<RandomArraySorter direction='DESC' />
-			<Form />
+			<List />
 		</>
 	);
 };
