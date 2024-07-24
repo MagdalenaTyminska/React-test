@@ -1,0 +1,32 @@
+{
+  "todos": [
+    {
+      "id": "1",
+      "title": "Buy some eggs"
+    },
+    {
+      "id": "2",
+      "title": "Buy some oranges"
+    },
+    {
+      "id": "3",
+      "title": "Buy some apples"
+    },
+    {
+      "id": "4",
+      "title": "Buy some strawberries"
+    },
+    {
+      "id": "5",
+      "title": "Buy some tomatoes"
+    },
+    {
+      "id": "6",
+      "title": "Buy some potatoes"
+    },
+    {
+      "id": "8e8c",
+      "title": "Buy some pears"
+    }
+  ]
+}
