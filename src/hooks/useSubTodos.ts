@@ -13,14 +13,6 @@ export const useSubTodos = (todoId: string) => {
 		if (response) setData(response.subtodos);
 	};
 
-	// const removeTodo = (id: string) => {
-	// 	setData((prevTodos) => prevTodos?.filter((todo) => todo.id !== id));
-	// };
-
-	// const addTodo = (todo: SubTodo) => {
-	// 	setData((prevTodos) => [...(prevTodos || []), todo]);
-	// };
-
 	useEffect(() => {
 		getSubTodos();
 	}, []);
@@ -30,7 +22,5 @@ export const useSubTodos = (todoId: string) => {
 		loading,
 		error,
 		getSubTodos,
-		// removeTodo,
-		// addTodo,
 	};
 };

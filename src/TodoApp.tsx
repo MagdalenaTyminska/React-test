@@ -1,6 +1,7 @@
 import { useTodos } from './hooks/useTodos';
 import { SingleTodo } from './SingleTodo';
 import { TodoForm } from './TodoForm';
+import { TopTodos } from './TopTodos';
 
 export const TodoApp = () => {
 	const { data, loading, error, removeTodo, addTodo } = useTodos();
@@ -10,6 +11,7 @@ export const TodoApp = () => {
 
 	return (
 		<>
+			<TopTodos />
 			<TodoForm onNewTodo={addTodo} />
 			<ul>
 				{data?.map((element) => (
