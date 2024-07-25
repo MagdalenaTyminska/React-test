@@ -1,10 +1,10 @@
 import './App.scss';
-import { List } from './List';
+import { TodoApp } from './TodoApp';
 
 export const App = () => {
 	return (
 		<>
-			<List />
+			<TodoApp />
 		</>
 	);
 };

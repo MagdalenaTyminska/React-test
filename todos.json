@@ -1,0 +1,44 @@
+{
+  "todos": [
+    {
+      "id": "1",
+      "title": "Buy some eggs"
+    },
+    {
+      "id": "2",
+      "title": "Buy some oranges"
+    },
+    {
+      "id": "3",
+      "title": "Buy some apples"
+    },
+    {
+      "id": "4",
+      "title": "Buy some strawberries"
+    },
+    {
+      "id": "5",
+      "title": "Buy some tomatoes"
+    },
+    {
+      "id": "6",
+      "title": "Buy some potatoes"
+    },
+    {
+      "id": "8e8c",
+      "title": "Buy some pears"
+    }
+  ],
+  "subtodos": [
+    {
+      "todoId": "8e8c",
+      "id": "a99a",
+      "title": "Lorem ipsum"
+    },
+    {
+      "todoId": "6",
+      "id": "a99abn",
+      "title": "Dolor sit amet"
+    }
+  ]
+}
