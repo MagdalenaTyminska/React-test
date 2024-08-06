@@ -1,4 +1,4 @@
-import { useSubTodos } from './hooks/useSubTodos';
+import { useGetSubTodosQuery } from './queries/useGetSubTodosQuery';
 import { SingleSubTodo } from './SingleSubTodo';
 import { SubTodoForm } from './SubTodoForm';
 
@@ -7,22 +7,18 @@ type SubTodosProps = {
 };
 
 export const SubTodos = ({ todoId }: SubTodosProps) => {
-	const { data, error, loading, getSubTodos } = useSubTodos(todoId);
+	const { data, error, isPending } = useGetSubTodosQuery(todoId);
 
-	if (error) return <p>{error}</p>;
-	if (loading) return <p>Loading...</p>;
+	if (error) return <p>{error.message}</p>;
+	if (isPending) return <p>Loading...</p>;
 	if (!data) return null;
 
 	return (
 		<>
-			<SubTodoForm todoId={todoId} onNewSubTodoCallback={getSubTodos} />
+			<SubTodoForm todoId={todoId} />
 			<ul>
 				{data.map((subtodo) => (
-					<SingleSubTodo
-						key={subtodo.id}
-						element={subtodo}
-						onDeleteCallback={getSubTodos}
-					/>
+					<SingleSubTodo key={subtodo.id} element={subtodo} />
 				))}
 			</ul>
 		</>
