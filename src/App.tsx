@@ -1,6 +1,8 @@
 import './App.scss';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { TodoApp } from './TodoApp';
+import { BookList } from './BookList';
+import { AddBook } from './AddBook';
+import { BookStats } from './BookStats';
 
 const queryClient = new QueryClient();
 
@@ -8,7 +10,9 @@ export const App = () => {
 	return (
 		<>
 			<QueryClientProvider client={queryClient}>
-				<TodoApp />
+				<BookStats />
+				<BookList />
+				<AddBook />
 			</QueryClientProvider>
 		</>
 	);

@@ -14,7 +14,6 @@
 		"lint-staged": "npx lint-staged"
 	},
 	"dependencies": {
-		"json-server": "^1.0.0-beta.1",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0"
 	},
@@ -36,6 +35,7 @@
 		"rollup": "^4.19.0",
 		"sass": "^1.72.0",
 		"typescript": "^5.5.4",
-		"vite": "^5.3.4"
+		"vite": "^5.3.4",
+		"json-server": "^1.0.0-beta.1"
 	}
 }

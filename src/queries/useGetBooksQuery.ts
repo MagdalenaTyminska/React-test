@@ -1,13 +1,13 @@
 import { useQuery } from '@tanstack/react-query';
 import { useApi } from '../hooks/useApi';
-import { Todo } from '../types/types';
+import { Book } from '../types/types';
 
-export const useGetTodosQuery = () => {
+export const useGetBooksQuery = () => {
 	const { apiGet } = useApi();
 	const { data, error, isPending } = useQuery({
-		queryKey: ['todos'],
+		queryKey: ['books'],
 		queryFn: async () => {
-			return apiGet<Todo[]>('todos');
+			return apiGet<Book[]>('books');
 		},
 	});
 

@@ -1,0 +1,40 @@
+{
+  "books": [
+    {
+      "id": "1",
+      "year": 2014,
+      "title": "Idealne zycie",
+      "description": "book"
+    },
+    {
+      "id": "2",
+      "year": 2004,
+      "title": "W głębinach",
+      "description": "book"
+    },
+    {
+      "id": "3",
+      "year": 2018,
+      "title": "P.S. I love you",
+      "description": "book"
+    },
+    {
+      "id": "4",
+      "year": 2023,
+      "title": "Silos",
+      "description": "book"
+    },
+    {
+      "id": "5",
+      "year": 2024,
+      "title": "Piknik",
+      "description": "book"
+    },
+    {
+      "id": "6",
+      "year": 2006,
+      "title": "Wira",
+      "description": "book"
+    }
+  ]
+}

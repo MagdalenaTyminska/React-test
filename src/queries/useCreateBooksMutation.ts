@@ -1,20 +1,20 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useApi } from '../hooks/useApi';
-import { Todo, TodoDto } from '../types/types';
+import { Book, BookDto } from '../types/types';
 
-export const useCreateTodoMutation = () => {
+export const useCreateBooksMutation = () => {
 	const { apiPost } = useApi();
 
 	const queryClient = useQueryClient();
 
 	const { data, error, isPending, mutate } = useMutation({
-		mutationKey: ['todos'],
-		mutationFn: async (title: string) => {
-			return apiPost<Todo, TodoDto>(`todos`, { title });
+		mutationKey: ['books'],
+		mutationFn: async ({ year, title, description }: BookDto) => {
+			return apiPost<Book, BookDto>(`books`, { year, title, description });
 		},
 		onSuccess: (createTodo) => {
-			queryClient.setQueryData<Todo[]>(['todos'], (oldTodos) => {
-				return [...(oldTodos || []), createTodo];
+			queryClient.setQueryData<Book[]>(['books'], (oldBooks) => {
+				return [...(oldBooks || []), createTodo];
 			});
 		},
 	});
