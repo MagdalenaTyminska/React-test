@@ -1,18 +1,11 @@
-import { useState } from 'react';
-
 const API_BASE = 'http://localhost:3000/';
 
 export const useApi = () => {
-	const [loading, setLoading] = useState(false);
-	const [error, setError] = useState('');
-
 	const call = async <R, P = void>(
 		url: string,
 		method: 'GET' | 'DELETE' | 'POST',
 		body?: P,
 	) => {
-		setLoading(true);
-
 		const commonData = {
 			method,
 			headers: { 'Content-Type': 'application/json' },
@@ -33,12 +26,10 @@ export const useApi = () => {
 				return data;
 			} else {
 				const apiError: string = await response.text();
-				setError(apiError);
+				throw new Error(apiError);
 			}
 		} catch (e) {
-			setError(`Error`);
-		} finally {
-			setLoading(false);
+			throw new Error(`Error`);
 		}
 	};
 
@@ -54,5 +45,5 @@ export const useApi = () => {
 		return await call<R, P>(url, 'POST', data);
 	};
 
-	return { apiGet, apiDelete, apiPost, loading, error };
+	return { apiGet, apiDelete, apiPost };
 };
