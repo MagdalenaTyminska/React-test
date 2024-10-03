@@ -1,14 +1,18 @@
 import { FormEvent, useState } from 'react';
-import { useCreateBooksMutation } from './queries/useCreateBooksMutation';
 import { BookForm } from './BookForm';
+import { Book } from './types/types';
+import { useEditBooksMutation } from './queries/useEditBooksMutation';
 
-export const AddBook = () => {
-	const { mutate: createBook, error, isPending } = useCreateBooksMutation();
+type EditBookProps = {
+	book: Book;
+};
 
+export const EditBook = ({ book }: EditBookProps) => {
+	const { mutate: editBook, isPending, error } = useEditBooksMutation(book.id);
 	const [newBook, setNewBook] = useState({
-		title: '',
-		year: 2024,
-		description: '',
+		title: book.title,
+		year: book.year,
+		description: book.description,
 	});
 
 	const handleChange = (
@@ -20,19 +24,15 @@ export const AddBook = () => {
 			...prevNewBook,
 			[name]: type === 'number' ? Number(value) : value,
 		}));
+
 	};
 
 	const handleSubmit = (e: FormEvent) => {
 		e.preventDefault();
-		createBook({
+		editBook({
 			title: newBook.title,
 			description: newBook.description,
 			year: newBook.year,
-		});
-		setNewBook({
-			year: 2024,
-			title: '',
-			description: '',
 		});
 	};
 

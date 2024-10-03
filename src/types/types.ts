@@ -5,8 +5,4 @@ export type Book = {
 	description: string;
 };
 
-export type BookDto = {
-	year: number;
-	title: string;
-	description: string;
-};
+export type BookDto = Omit<Book, 'id'>;

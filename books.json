@@ -1,16 +1,10 @@
 {
   "books": [
     {
-      "id": "1",
-      "year": 2014,
-      "title": "Idealne zycie",
-      "description": "book"
-    },
-    {
-      "id": "2",
-      "year": 2004,
+      "year": 2005,
       "title": "W głębinach",
-      "description": "book"
+      "description": "book",
+      "id": "2"
     },
     {
       "id": "3",
@@ -28,12 +22,6 @@
       "id": "5",
       "year": 2024,
       "title": "Piknik",
-      "description": "book"
-    },
-    {
-      "id": "6",
-      "year": 2006,
-      "title": "Wira",
       "description": "book"
     }
   ]

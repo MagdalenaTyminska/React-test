@@ -1,9 +1,9 @@
-const API_BASE = 'http://localhost:3000/';
+const API_BASE = import.meta.env.VITE_API_URL;
 
 export const useApi = () => {
 	const call = async <R, P = void>(
 		url: string,
-		method: 'GET' | 'DELETE' | 'POST' | 'PATCH',
+		method: 'GET' | 'DELETE' | 'POST' | 'PUT',
 		body?: P,
 	) => {
 		const commonData = {
@@ -41,13 +41,13 @@ export const useApi = () => {
 		return await call<R>(url, 'DELETE');
 	};
 
-	const apiPatch = async <R, P>(url: string, data?: P) => {
-		return await call<R, P>(url, 'PATCH', data);
+	const apiPut = async <R, P>(url: string, data?: P) => {
+		return await call<R, P>(url, 'PUT', data);
 	};
 
-	const apiPost = async <R, P>(url: string, data: P) => {
+	const apiPost = async <R, P>(url: string, data?: P) => {
 		return await call<R, P>(url, 'POST', data);
 	};
 
-	return { apiGet, apiDelete, apiPost, apiPatch };
+	return { apiGet, apiDelete, apiPost, apiPut };
 };

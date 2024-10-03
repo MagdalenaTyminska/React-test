@@ -2,15 +2,19 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useApi } from '../hooks/useApi';
 import { Book, BookDto } from '../types/types';
 
-export const useCreateBooksMutation = () => {
-	const { apiPost } = useApi();
+export const useEditBooksMutation = (bookId: string) => {
+	const { apiPut } = useApi();
 
 	const queryClient = useQueryClient();
 
-	const { data, error, isPending, mutate } = useMutation({
-		mutationKey: ['books', 'create'],
+	const { error, isPending, mutate } = useMutation({
+		mutationKey: ['books', 'update', bookId],
 		mutationFn: async ({ year, title, description }: BookDto) => {
-			return apiPost<Book, BookDto>(`books`, { year, title, description });
+			return apiPut<Book, BookDto>(`books/${bookId}`, {
+				year,
+				title,
+				description,
+			});
 		},
 		onSuccess: () => {
 			queryClient.invalidateQueries({ queryKey: ['books'] });
@@ -18,7 +22,6 @@ export const useCreateBooksMutation = () => {
 	});
 
 	return {
-		data,
 		error,
 		isPending,
 		mutate,

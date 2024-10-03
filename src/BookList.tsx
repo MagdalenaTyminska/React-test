@@ -9,11 +9,8 @@ export const BookList = () => {
 
 	return (
 		<>
-			<ul>
-				{data?.map((element) => (
-					<SingleBook key={element.id} element={element} />
-				))}
-			</ul>
+			<h1>Books</h1>
+			<ul>{data?.map((book) => <SingleBook key={book.id} book={book} />)}</ul>
 		</>
 	);
 };
