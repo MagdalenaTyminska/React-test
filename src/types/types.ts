@@ -1,8 +1,8 @@
-export type Book = {
+export type BookEntity = {
 	id: string;
 	year: number;
 	title: string;
 	description: string;
 };
 
-export type BookDto = Omit<Book, 'id'>;
+export type BookDto = Omit<BookEntity, 'id'>;

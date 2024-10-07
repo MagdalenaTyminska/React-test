@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useApi } from '../hooks/useApi';
-import { Book } from '../types/types';
+import { BookEntity } from '../types/types';
 
 export const useDeleteBooksMutation = (bookId: string) => {
 	const { apiDelete } = useApi();
@@ -9,10 +9,10 @@ export const useDeleteBooksMutation = (bookId: string) => {
 	const { mutate, error, isPending } = useMutation({
 		mutationKey: ['books', 'delete', bookId],
 		mutationFn: async () => {
-			return apiDelete<Book>(`books/${bookId}`);
+			return apiDelete<BookEntity>(`books/${bookId}`);
 		},
 		onSuccess: () => {
-			queryClient.invalidateQueries({ queryKey: [`books`] });
+			queryClient.invalidateQueries({ queryKey: ['books'] });
 		},
 	});
 

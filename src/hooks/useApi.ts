@@ -1,25 +1,19 @@
 const API_BASE = import.meta.env.VITE_API_URL;
 
 export const useApi = () => {
-	const call = async <R, P = void>(
+	const call = async <R, P = {}>(
 		url: string,
 		method: 'GET' | 'DELETE' | 'POST' | 'PUT',
-		body?: P,
-	) => {
-		const commonData = {
+		payload?: P,
+	): Promise<R> => {
+		const fetchConfig = {
 			method,
 			headers: { 'Content-Type': 'application/json' },
+			body: payload ? JSON.stringify(payload) : undefined,
 		};
 
-		const reqData = body
-			? {
-					...commonData,
-					body: JSON.stringify(body),
-				}
-			: commonData;
-
 		try {
-			const response = await fetch(`${API_BASE}${url}`, reqData);
+			const response = await fetch(`${API_BASE}${url}`, fetchConfig);
 
 			if (response.ok) {
 				const data: R = await response.json();
@@ -37,16 +31,16 @@ export const useApi = () => {
 		return await call<R>(url, 'GET');
 	};
 
+	const apiPost = async <R, P>(url: string, payload: P) => {
+		return await call<R, P>(url, 'POST', payload);
+	};
+
+	const apiPut = async <R, P>(url: string, payload: P) => {
+		return await call<R, P>(url, 'PUT', payload);
+	};
+
 	const apiDelete = async <R>(url: string) => {
 		return await call<R>(url, 'DELETE');
-	};
-
-	const apiPut = async <R, P>(url: string, data?: P) => {
-		return await call<R, P>(url, 'PUT', data);
-	};
-
-	const apiPost = async <R, P>(url: string, data?: P) => {
-		return await call<R, P>(url, 'POST', data);
 	};
 
 	return { apiGet, apiDelete, apiPost, apiPut };

@@ -1,15 +1,15 @@
 import { useQuery } from '@tanstack/react-query';
 import { useApi } from '../hooks/useApi';
-import { Book } from '../types/types';
+import { BookEntity } from '../types/types';
 
 export const useGetBooksQuery = () => {
 	const { apiGet } = useApi();
-	const { data, error, isLoading } = useQuery({
+	const { data, error, isFetching } = useQuery({
 		queryKey: ['books'],
 		queryFn: async () => {
-			return apiGet<Book[]>('books');
+			return apiGet<BookEntity[]>('books');
 		},
 	});
 
-	return { data, error, isLoading };
+	return { data, error, isFetching };
 };
