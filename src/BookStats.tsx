@@ -7,7 +7,7 @@ export const BookStats = () => {
 
 	if (error) return <p>Failed to load book stats</p>;
 
-	if (!data || data.length === 0) return <p>No books available</p>;
+	if (!data || data.length === 0) return <p>No books available!</p>;
 
 	return (
 		<div>
