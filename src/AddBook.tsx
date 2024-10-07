@@ -45,6 +45,7 @@ export const AddBook = () => {
 			isPending={isPending}
 			newBook={newBook}
 			error={error}
+			buttonLabel='Add'
 		/>
 	);
 };

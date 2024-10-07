@@ -24,7 +24,6 @@ export const EditBook = ({ book }: EditBookProps) => {
 			...prevNewBook,
 			[name]: type === 'number' ? Number(value) : value,
 		}));
-
 	};
 
 	const handleSubmit = (e: FormEvent) => {
@@ -45,6 +44,7 @@ export const EditBook = ({ book }: EditBookProps) => {
 			isPending={isPending}
 			newBook={newBook}
 			error={error}
+			buttonLabel='Save'
 		/>
 	);
 };

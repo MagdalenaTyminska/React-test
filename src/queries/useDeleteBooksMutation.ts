@@ -4,23 +4,21 @@ import { Book } from '../types/types';
 
 export const useDeleteBooksMutation = (bookId: string) => {
 	const { apiDelete } = useApi();
-
 	const queryClient = useQueryClient();
 
-	const { data, error, isPending, mutate } = useMutation({
+	const { mutate, error, isPending } = useMutation({
 		mutationKey: ['books', 'delete', bookId],
-		mutationFn: async (bookId: string) => {
+		mutationFn: async () => {
 			return apiDelete<Book>(`books/${bookId}`);
 		},
 		onSuccess: () => {
-			queryClient.invalidateQueries({ queryKey: [`books/${bookId}`] });
+			queryClient.invalidateQueries({ queryKey: [`books`] });
 		},
 	});
 
 	return {
-		data,
+		mutate,
 		error,
 		isPending,
-		mutate,
 	};
 };

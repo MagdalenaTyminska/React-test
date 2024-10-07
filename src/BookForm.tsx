@@ -9,6 +9,7 @@ type BookFormProps = {
 	newBook: BookDto;
 	isPending: boolean;
 	error: Error | null;
+	buttonLabel: string;
 };
 
 export const BookForm = ({
@@ -17,6 +18,7 @@ export const BookForm = ({
 	newBook,
 	isPending,
 	error,
+	buttonLabel,
 }: BookFormProps) => {
 	return (
 		<>
@@ -48,7 +50,7 @@ export const BookForm = ({
 					required
 				/>
 				<button type='submit' disabled={isPending}>
-					Save
+					{buttonLabel}
 				</button>
 				{error && <p>{error.message}</p>}
 			</form>

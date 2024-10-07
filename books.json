@@ -19,10 +19,10 @@
       "description": "book"
     },
     {
-      "id": "5",
-      "year": 2024,
-      "title": "Piknik",
-      "description": "book"
+      "year": 1935,
+      "title": "Baśnie Braci Grimm",
+      "description": "baśnie",
+      "id": "eb3f"
     }
   ]
 }

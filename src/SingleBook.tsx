@@ -1,6 +1,6 @@
 import { Book } from './types/types';
-import { useDeleteBooksMutation } from './queries/useDeleteBooksMutation';
 import { EditBook } from './EditBook';
+import { DeleteBook } from './DeleteBook';
 import { useState } from 'react';
 
 type SingleBookProps = {
@@ -8,35 +8,36 @@ type SingleBookProps = {
 };
 
 export const SingleBook = ({ book }: SingleBookProps) => {
-	const [isEditing, setIsEditing] = useState(false);
-	const {
-		mutate: deleteBook,
-		isPending,
-		error,
-	} = useDeleteBooksMutation(book.id);
+	const [mode, setMode] = useState<'edit' | 'delete' | 'none'>('none');
 
 	const toggleEdit = () => {
-		setIsEditing((prevIsEditing) => !prevIsEditing);
+		setMode((prevMode) => (prevMode === 'edit' ? 'none' : 'edit'));
 	};
 
-	const onDelete = () => {
-		deleteBook(book.id);
+	const toggleDelete = () => {
+		setMode((prevMode) => (prevMode === 'delete' ? 'none' : 'delete'));
 	};
 
 	return (
 		<>
-			<li key={book.id}>
-				<strong>
-					<h2>{book.title}</h2>
-				</strong>
-				<p>{book.year} </p>
+			<li>
+				<h2>
+					<strong>{book.title}</strong>
+					{book.year}
+				</h2>
 				<p>{book.description} </p>
-				<button disabled={isPending} onClick={onDelete}>
-					Delete
+
+				<button onClick={toggleEdit}>
+					{mode === 'edit' ? 'Cancel' : 'Edit'}
 				</button>
-				{error && <p>{error.message}</p>}
-				<button onClick={toggleEdit}>{isEditing ? 'Cancel' : 'Edit'}</button>
-				{isEditing ? <EditBook book={book} /> : undefined}
+				{mode === 'edit' ? <EditBook book={book} /> : undefined}
+
+				<button onClick={toggleDelete}>
+					{mode === 'delete' ? 'Cancel' : 'Delete'}
+				</button>
+				{mode === 'delete' ? (
+					<DeleteBook onCancel={toggleDelete} book={book} />
+				) : undefined}
 			</li>
 		</>
 	);

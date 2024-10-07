@@ -4,12 +4,12 @@ import { Book } from '../types/types';
 
 export const useGetBooksQuery = () => {
 	const { apiGet } = useApi();
-	const { data, error, isPending } = useQuery({
+	const { data, error, isLoading } = useQuery({
 		queryKey: ['books'],
 		queryFn: async () => {
 			return apiGet<Book[]>('books');
 		},
 	});
 
-	return { data, error, isPending };
+	return { data, error, isLoading };
 };
