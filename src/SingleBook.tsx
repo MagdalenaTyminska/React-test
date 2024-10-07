@@ -1,10 +1,10 @@
-import { Book } from './types/types';
+import { BookEntity } from './types/types';
 import { EditBook } from './EditBook';
 import { DeleteBook } from './DeleteBook';
 import { useState } from 'react';
 
 type SingleBookProps = {
-	book: Book;
+	book: BookEntity;
 };
 
 export const SingleBook = ({ book }: SingleBookProps) => {

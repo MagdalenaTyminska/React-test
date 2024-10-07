@@ -5,7 +5,7 @@ import { BookForm } from './BookForm';
 export const AddBook = () => {
 	const { mutate: createBook, error, isPending } = useCreateBooksMutation();
 
-	const [newBook, setNewBook] = useState({
+	const [values, setValues] = useState({
 		title: '',
 		year: 2024,
 		description: '',
@@ -16,8 +16,8 @@ export const AddBook = () => {
 	) => {
 		const { name, value, type } = e.target;
 
-		setNewBook((prevNewBook) => ({
-			...prevNewBook,
+		setValues((prevValues) => ({
+			...prevValues,
 			[name]: type === 'number' ? Number(value) : value,
 		}));
 	};
@@ -25,11 +25,11 @@ export const AddBook = () => {
 	const handleSubmit = (e: FormEvent) => {
 		e.preventDefault();
 		createBook({
-			title: newBook.title,
-			description: newBook.description,
-			year: newBook.year,
+			title: values.title,
+			description: values.description,
+			year: values.year,
 		});
-		setNewBook({
+		setValues({
 			year: 2024,
 			title: '',
 			description: '',
@@ -43,7 +43,7 @@ export const AddBook = () => {
 			handleSubmit={handleSubmit}
 			handleChange={handleChange}
 			isPending={isPending}
-			newBook={newBook}
+			values={values}
 			error={error}
 			buttonLabel='Add'
 		/>

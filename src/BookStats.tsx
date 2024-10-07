@@ -1,37 +1,19 @@
-// import { useStats } from './hooks/useStats';
+import { useGetBooksQuery } from './queries/useGetBooksQuery';
 
-// export const BookStats = () => {
-// 	const { length, books } = useStats();
+export const BookStats = () => {
+	const { data, isFetching, error } = useGetBooksQuery();
 
-// 	return (
-// 		<div>
-// 			<h2> Quantity of books </h2>
-// 			<p>{length}</p>
-// 			<ul>
-// 				{books.map((book) => (
-// 					<li key={book.id}>{book.title}</li>
-// 				))}
-// 			</ul>
-// 		</div>
-// 	);
-// };
+	if (isFetching) return <p>Loading book stats...</p>;
 
-// import { useGetBooksQuery } from './queries/useGetBooksQuery';
+	if (error) return <p>Failed to load book stats</p>;
 
-// export const BookStats = () => {
-// 	const { data, isFeatching } = useGetBooksQuery();
+	if (!data || data.length === 0) return <p>No books available</p>;
 
-// 	if (isFeatching) return <p>Loading book stats...</p>;
-
-// 	return (
-// 		<div>
-// 			<h2> Quantity of books </h2>
-// 			<p>{data?.length || 'No data'}</p>
-// 			<ul>
-// 				{books.map((book) => (
-// 					<li key={book.id}>{book.title}</li>
-// 				))}
-// 			</ul>
-// 		</div>
-// 	);
-// };
+	return (
+		<div>
+			<h2> Quantity of books </h2>
+			<p>{data.length}</p>
+			<ul>{data?.map((book) => <li key={book.id}>{book.title}</li>)}</ul>
+		</div>
+	);
+};

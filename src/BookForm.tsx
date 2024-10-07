@@ -6,7 +6,7 @@ type BookFormProps = {
 	handleChange: (
 		e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
 	) => void;
-	newBook: BookDto;
+	values: BookDto;
 	isPending: boolean;
 	error: Error | null;
 	buttonLabel: string;
@@ -15,7 +15,7 @@ type BookFormProps = {
 export const BookForm = ({
 	handleSubmit,
 	handleChange,
-	newBook,
+	values,
 	isPending,
 	error,
 	buttonLabel,
@@ -28,7 +28,7 @@ export const BookForm = ({
 					type='text'
 					id='title'
 					name='title'
-					value={newBook.title}
+					value={values.title}
 					onChange={handleChange}
 					required
 				/>
@@ -37,7 +37,7 @@ export const BookForm = ({
 					type='number'
 					id='year'
 					name='year'
-					value={newBook.year}
+					value={values.year}
 					onChange={handleChange}
 					required
 				/>
@@ -45,7 +45,7 @@ export const BookForm = ({
 				<textarea
 					id='description'
 					name='description'
-					value={newBook.description}
+					value={values.description}
 					onChange={handleChange}
 					required
 				/>

@@ -1,8 +1,8 @@
 import { useDeleteBooksMutation } from './queries/useDeleteBooksMutation';
-import { Book } from './types/types';
+import { BookEntity } from './types/types';
 
 type DeleteBookProps = {
-	book: Book;
+	book: BookEntity;
 	onCancel: () => void;
 };
 

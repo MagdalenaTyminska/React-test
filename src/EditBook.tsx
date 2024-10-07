@@ -1,15 +1,16 @@
 import { FormEvent, useState } from 'react';
 import { BookForm } from './BookForm';
-import { Book } from './types/types';
+import { BookEntity } from './types/types';
 import { useEditBooksMutation } from './queries/useEditBooksMutation';
 
 type EditBookProps = {
-	book: Book;
+	book: BookEntity;
 };
 
 export const EditBook = ({ book }: EditBookProps) => {
 	const { mutate: editBook, isPending, error } = useEditBooksMutation(book.id);
-	const [newBook, setNewBook] = useState({
+
+	const [values, setValues] = useState({
 		title: book.title,
 		year: book.year,
 		description: book.description,
@@ -20,8 +21,8 @@ export const EditBook = ({ book }: EditBookProps) => {
 	) => {
 		const { name, value, type } = e.target;
 
-		setNewBook((prevNewBook) => ({
-			...prevNewBook,
+		setValues((prevValues) => ({
+			...prevValues,
 			[name]: type === 'number' ? Number(value) : value,
 		}));
 	};
@@ -29,9 +30,9 @@ export const EditBook = ({ book }: EditBookProps) => {
 	const handleSubmit = (e: FormEvent) => {
 		e.preventDefault();
 		editBook({
-			title: newBook.title,
-			description: newBook.description,
-			year: newBook.year,
+			title: values.title,
+			description: values.description,
+			year: values.year,
 		});
 	};
 
@@ -42,7 +43,7 @@ export const EditBook = ({ book }: EditBookProps) => {
 			handleSubmit={handleSubmit}
 			handleChange={handleChange}
 			isPending={isPending}
-			newBook={newBook}
+			values={values}
 			error={error}
 			buttonLabel='Save'
 		/>
