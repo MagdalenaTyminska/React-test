@@ -1,0 +1,28 @@
+{
+  "books": [
+    {
+      "title": "W głębinach",
+      "description": "book",
+      "year": 2005,
+      "id": "2"
+    },
+    {
+      "title": "P.S. I love you",
+      "description": "book.",
+      "year": 2018,
+      "id": "3"
+    },
+    {
+      "id": "4",
+      "year": 2023,
+      "title": "Silos",
+      "description": "book"
+    },
+    {
+      "year": 1935,
+      "title": "Baśnie Braci Grimm",
+      "description": "baśnie",
+      "id": "eb3f"
+    }
+  ]
+}

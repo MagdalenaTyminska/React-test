@@ -1,20 +1,8 @@
-export type Todo = {
+export type BookEntity = {
 	id: string;
+	year: number;
 	title: string;
+	description: string;
 };
 
-export type SubTodo = Todo & {
-	todoId: string;
-};
-
-export type TodoWithSubTodos = Todo & {
-	subtodos: SubTodo[];
-};
-
-export type TodoDto = {
-	title: string;
-};
-
-export type SubTodoDto = TodoDto & {
-	todoId: string;
-};
+export type BookDto = Omit<BookEntity, 'id'>;
