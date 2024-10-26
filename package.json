@@ -9,7 +9,7 @@
 		"lint": "eslint --report-unused-disable-directives --max-warnings 0",
 		"prettify": "npx prettier --write",
 		"preview": "vite preview",
-		"typecheck": "tsc --noEmit --jsx react-jsx --downlevelIteration --skipLibCheck --module esnext --moduleResolution node",
+		"typecheck": "tsc --noEmit",
 		"prepare": "husky install",
 		"lint-staged": "npx lint-staged"
 	},
