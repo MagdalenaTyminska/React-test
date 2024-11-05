@@ -1,17 +1,13 @@
 import './App.scss';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { BookList } from './BookList';
-import { BookStats } from './BookStats';
-
-const queryClient = new QueryClient();
+import { Wrapper } from './Wrapper';
 
 export const App = () => {
 	return (
 		<>
-			<QueryClientProvider client={queryClient}>
-				<BookStats />
-				<BookList />
-			</QueryClientProvider>
+			<Wrapper>
+				{' '}
+				<h1>Hello</h1>{' '}
+			</Wrapper>
 		</>
 	);
 };
