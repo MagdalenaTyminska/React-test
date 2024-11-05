@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, useState } from 'react';
 import styles from './Wrapper.module.scss';
 
 type WrapperProps = {
@@ -6,5 +6,19 @@ type WrapperProps = {
 };
 
 export const Wrapper = ({ children }: WrapperProps) => {
-	return <div className={styles.wrapper}>{children}</div>;
+	const [isActive, setIsActive] = useState(false);
+
+	const toggleActive = () => {
+		setIsActive((prevActive) => !prevActive);
+	};
+
+	return (
+		<div
+			className={`${styles.wrapper} ${isActive ? styles.active : ''}`}
+			onClick={toggleActive}
+			role='button'
+		>
+			{children}
+		</div>
+	);
 };
