@@ -1,5 +1,6 @@
 import { ReactNode, useState } from 'react';
 import scss from './Wrapper.module.scss';
+import clsx from 'clsx';
 
 type WrapperProps = {
 	children: ReactNode;
@@ -20,7 +21,10 @@ export const Wrapper = ({ children }: WrapperProps) => {
 		<>
 			<button onClick={togglePrimary}>Toggle primary</button>
 			<div
-				className={`${scss.wrapper} ${isActive ? scss.active : ''} ${isPrimary ? scss.primary : ''}`}
+				className={clsx(scss.wrapper, {
+					[scss.active]: isActive,
+					[scss.primary]: isPrimary,
+				})}
 				onClick={toggleActive}
 				role='button'
 			>

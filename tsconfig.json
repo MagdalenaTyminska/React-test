@@ -21,16 +21,10 @@
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
 		"noFallthroughCasesInSwitch": true,
-		"plugins": [
-			{
-				"name": "typescript-plugin-css-modules"
-			}
-		]
 	},
 	"include": [
 		"src/**/*",
-		"src/vite-env.d.ts",
-		"src/declarations.d.ts"
+		"src/vite-env.d.ts"
 	],
 	"references": [
 		{
