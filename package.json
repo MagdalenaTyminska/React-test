@@ -6,7 +6,7 @@
 	"scripts": {
 		"dev": "vite",
 		"build": "tsc && vite build",
-		"lint": "eslint --report-unused-disable-directives",
+		"lint": "eslint --report-unused-disable-directives --max-warnings 0",
 		"prettify": "npx prettier --write",
 		"preview": "vite preview",
 		"typecheck": "tsc --noEmit --jsx react-jsx",

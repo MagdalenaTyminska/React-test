@@ -1,26 +1,33 @@
-import { ThemeProvider } from 'styled-components';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import './App.scss';
-import { Button } from './Button/Button';
-import { Wrapper } from './Wrapper/Wrapper';
-import { Elements } from './Elements/Elements';
+import { Button } from './Button';
+import { Text } from './Text';
+import { Wrapper } from './Wrapper';
+
+const GlobalStyle = createGlobalStyle`
+body {
+background-color: ${(props) => props.theme.colors.background}
+}
+`;
 
 export const App = () => {
-	const theme = {
+	const light = {
 		colors: {
-			primary: '#0242e4',
-			textLight: '#fee0fe',
+			primary: '#0333EE',
+			background: '#fff',
+			textPrimary: '#eee',
+			textBackground: '#333',
 		},
 	};
 
 	return (
 		<>
-			<ThemeProvider theme={theme}>
+			<ThemeProvider theme={light}>
+				<GlobalStyle />
 				<Wrapper>
-					{' '}
-					<h1>Hello</h1>{' '}
+					<Button label='click' />
+					<Text>Lorem ipsum</Text>
 				</Wrapper>
-				<Button />
-				<Elements />
 			</ThemeProvider>
 		</>
 	);
