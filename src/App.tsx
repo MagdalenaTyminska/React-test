@@ -1,8 +1,10 @@
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import './App.scss';
-import { Button } from './Button';
-import { Text } from './Text';
-import { Wrapper } from './Wrapper';
+// import { Button } from './Button';
+// import { Text } from './Text';
+// import { Wrapper } from './Wrapper';
+import { Foo } from './Foo';
+import { Bar } from './Bar';
 
 const GlobalStyle = createGlobalStyle`
 body {
@@ -24,10 +26,12 @@ export const App = () => {
 		<>
 			<ThemeProvider theme={light}>
 				<GlobalStyle />
-				<Wrapper>
+				{/* <Wrapper>
 					<Button label='click' />
 					<Text>Lorem ipsum</Text>
-				</Wrapper>
+				</Wrapper> */}
+				<Foo />
+				<Bar />
 			</ThemeProvider>
 		</>
 	);
