@@ -1,17 +1,27 @@
+import { ThemeProvider } from 'styled-components';
 import './App.scss';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { BookList } from './BookList';
-import { BookStats } from './BookStats';
-
-const queryClient = new QueryClient();
+import { Button } from './Button/Button';
+import { Wrapper } from './Wrapper/Wrapper';
+import { Elements } from './Elements/Elements';
 
 export const App = () => {
+	const theme = {
+		colors: {
+			primary: '#0242e4',
+			textLight: '#fee0fe',
+		},
+	};
+
 	return (
 		<>
-			<QueryClientProvider client={queryClient}>
-				<BookStats />
-				<BookList />
-			</QueryClientProvider>
+			<ThemeProvider theme={theme}>
+				<Wrapper>
+					{' '}
+					<h1>Hello</h1>{' '}
+				</Wrapper>
+				<Button />
+				<Elements />
+			</ThemeProvider>
 		</>
 	);
 };
