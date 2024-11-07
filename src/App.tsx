@@ -4,6 +4,7 @@ import { Button } from './Button';
 import { Text } from './Text';
 import { Wrapper } from './Wrapper';
 import { useState } from 'react';
+import { Bouncy } from './Bouncy';
 
 const GlobalStyle = createGlobalStyle`
 body {
@@ -44,6 +45,7 @@ export const App = () => {
 					<Button label='click' onClick={toggleTheme} />
 					<Text>Lorem ipsum</Text>
 				</Wrapper>
+				<Bouncy />
 			</ThemeProvider>
 		</>
 	);
