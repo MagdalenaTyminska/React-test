@@ -1,10 +1,9 @@
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import './App.scss';
-// import { Button } from './Button';
-// import { Text } from './Text';
-// import { Wrapper } from './Wrapper';
-import { Foo } from './Foo';
-import { Bar } from './Bar';
+import { Button } from './Button';
+import { Text } from './Text';
+import { Wrapper } from './Wrapper';
+import { useState } from 'react';
 
 const GlobalStyle = createGlobalStyle`
 body {
@@ -13,6 +12,8 @@ background-color: ${(props) => props.theme.colors.background}
 `;
 
 export const App = () => {
+	const [isLight, setLight] = useState(true);
+
 	const light = {
 		colors: {
 			primary: '#0333EE',
@@ -22,16 +23,27 @@ export const App = () => {
 		},
 	};
 
+	const dark = {
+		colors: {
+			primary: '#9ca5df',
+			background: '#000',
+			textPrimary: '#333',
+			textBackground: '#eee',
+		},
+	};
+
+	const toggleTheme = () => {
+		setLight((prevLight) => !prevLight);
+	};
+
 	return (
 		<>
-			<ThemeProvider theme={light}>
+			<ThemeProvider theme={isLight ? light : dark}>
 				<GlobalStyle />
-				{/* <Wrapper>
-					<Button label='click' />
+				<Wrapper>
+					<Button label='click' onClick={toggleTheme} />
 					<Text>Lorem ipsum</Text>
-				</Wrapper> */}
-				<Foo />
-				<Bar />
+				</Wrapper>
 			</ThemeProvider>
 		</>
 	);

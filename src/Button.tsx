@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 type ButtonProps = {
 	label: string;
+	onClick: () => void;
 };
 
 const StyledButton = styled.button`
@@ -12,10 +13,10 @@ const StyledButton = styled.button`
 	color: ${(props) => props.theme.colors.background};
 `;
 
-export const Button = ({ label }: ButtonProps) => {
+export const Button = ({ label, onClick }: ButtonProps) => {
 	return (
 		<>
-			<StyledButton>{label}</StyledButton>
+			<StyledButton onClick={onClick}>{label}</StyledButton>
 		</>
 	);
 };
