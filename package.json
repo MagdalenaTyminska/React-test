@@ -37,6 +37,7 @@
 		"lint-staged": "^15.2.5",
 		"nanoid": "^5.0.7",
 		"prettier": "^3.3.0",
+		"react-router-dom": "^6.26.1",
 		"rollup": "^4.19.0",
 		"sass": "^1.80.6",
 		"styled-components": "^6.1.13",
